@@ -23,11 +23,7 @@ namespace Ciomag_Andreea_Lab6.Controllers
         // GET: api/Expenses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ExpenseDTO>>> GetExpenses()
-        {
-          if (_context.Expenses == null)
-          {
-              return NotFound();
-          }
+        { 
             return await _context.ExpenseDTO.ToListAsync();
         }
 
@@ -35,10 +31,6 @@ namespace Ciomag_Andreea_Lab6.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<ExpenseDTO>> GetExpenses(int id)
         {
-          if (_context.ExpenseDTO == null)
-          {
-              return NotFound();
-          }
             var expenses = await _context.ExpenseDTO.FindAsync(id);
 
             if (expenses == null)
